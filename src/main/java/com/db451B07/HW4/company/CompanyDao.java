@@ -22,10 +22,9 @@ public class CompanyDao {
         ResultSet rs;
         Connection conn = null;
         ArrayList<GetSearchResult> getSearchResults = new ArrayList<>();
-
+        System.out.println(query);
         try {
             conn = getConnection();
-            System.out.println("정상적으로 연결되었습니다.");
 
             Statement stmt = conn.createStatement();
             rs = stmt.executeQuery(query);

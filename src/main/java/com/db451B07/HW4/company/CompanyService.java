@@ -176,7 +176,7 @@ public class CompanyService {
                 where += "e2.ssn=" + "'" + inputText + "'";
             }
         }
-        query = "SELECT " + query + " FROM EMPLOYEE e JOIN DEPARTMENT d ON e.Dno=d.Dnumber JOIN EMPLOYEE e2 ON e.super_ssn=e2.ssn" + where;
+        query = "SELECT " + query + " FROM EMPLOYEE e LEFT JOIN DEPARTMENT d ON e.Dno=d.Dnumber LEFT JOIN EMPLOYEE e2 ON e.super_ssn=e2.ssn" + where;
 
         return query;
     }

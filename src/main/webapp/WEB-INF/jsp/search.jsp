@@ -14,6 +14,7 @@
     searches = (ArrayList<GetSearchResult>) request.getAttribute("searches");
     tableHeaders = (ArrayList<String>) request.getAttribute("tableHeaders");
 %>
+
 <script>
     function update(form) {
         form.action = "/update";
@@ -28,7 +29,7 @@
     }
 </script>
 <form method="post" action="/delete">
-    <table border="1">
+    <table border="1" bordercolor="blue">
         <th>선택</th>
         <%
             for (int i = 0; i < tableHeaders.size(); i++) {

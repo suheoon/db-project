@@ -63,18 +63,4 @@ public class CompanyController {
 
         return "home";
     }
-
-    //    @GetMapping("/insertPage")
-//    private String insertPage(){
-//        return "/jsp/insert.jsp";
-//    }
-//
-//    @PostMapping("/insert")
-//    private String insert(@ModelAttribute Employee employee){
-//        boolean insert = companyService.
-//        if(insert) return "/jsp/home.jsp";
-//        else return "/jsp/insertFail.jsp";
-//    }
-
-
 }

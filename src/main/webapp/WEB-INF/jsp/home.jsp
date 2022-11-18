@@ -1,16 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>DB_706_11</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <style>
-        * {
-            font-family: 'Jua', sans-serif;
-        }
-    </style>
 </head>
 <body>
 <form method="get" action="/search">
@@ -33,10 +25,12 @@
             var sex = ["M", "F"];
             var birthday = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
             var target = document.getElementById("category");
+            var d;
 
-            if (e.value == "department") var d = department;
-            else if (e.value == "sex") var d = sex;
-            else var d = none;
+            if (e.value == "department") d = department;
+            else if (e.value == "sex") d = sex;
+            else if (e.value == "bdate") d = birthday;
+            else d = none;
 
             target.options.length = 0;
 

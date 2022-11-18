@@ -1,8 +1,8 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" %>
+<%@ page import="com.db451B07.HW4.company.model.GetSearchResult" %>
 <%@ include file="home.jsp" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.lang.*" %>
-<%@ page import="com.db451B07.HW4.company.model.GetSearchResult" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" %>
 
 <%!
     ArrayList<Boolean> option;

@@ -1,8 +1,7 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ include file="home.jsp" %>
 <%@ page import="java.lang.*" %>
 <%@ page import="java.util.*" %>
-
+<%@ page contentType="text/html; charset=utf-8" language="java" %>
 
 <% ArrayList<String> nameList;%>
 <% nameList = (ArrayList<String>)request.getAttribute("name");%>

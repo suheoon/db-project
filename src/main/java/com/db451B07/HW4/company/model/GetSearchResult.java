@@ -17,18 +17,4 @@ public class GetSearchResult {
     private String salary;
     private String supervisor;
     private String department;
-
-    @Override
-    public String toString() {
-        return "(" +
-                name + ", " +
-                ssn + ", " +
-                bDate + ", " +
-                address + ", " +
-                sex + ", " +
-                salary + ", " +
-                supervisor + ", " +
-                department + ", " +
-                ")";
-    }
 }

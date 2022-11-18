@@ -23,6 +23,12 @@ public class CompanyService {
         return companyDao.searchEmployee(query, option);
     }
 
+    public ArrayList<String> searchFamily(String ssn) {
+        String query = "SELECT * FROM DEPENDENT WHERE Essn = " + "'" + ssn + "'";
+        System.out.println(query);
+        return companyDao.searchFamily(query);
+    }
+
     public void deleteEmployee(DeleteEmployeeReq deleteEmployeeReq) {
         ArrayList<String> queries = new ArrayList<>();
         String query = "DELETE FROM EMPLOYEE WHERE ssn=";
@@ -164,6 +170,7 @@ public class CompanyService {
             }
         }
         query = "SELECT " + query + " FROM (EMPLOYEE e LEFT OUTER JOIN DEPARTMENT d ON e.Dno=d.Dnumber) LEFT OUTER JOIN EMPLOYEE s on e.super_ssn=s.ssn" + where;
+
         System.out.println(query);
 
         return query;

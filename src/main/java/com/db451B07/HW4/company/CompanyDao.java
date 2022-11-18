@@ -74,6 +74,38 @@ public class CompanyDao {
         return getSearchResults;
     }
 
+    public ArrayList<String> searchFamily(String query) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs;
+        ArrayList<String> nameList = new ArrayList<String>();
+
+        try {
+            conn = getConnection();
+            System.out.println("정상적으로 연결되었습니다.");
+
+            Statement stmt = conn.createStatement();
+            rs = stmt.executeQuery(query);
+
+            while(rs.next()) {
+                nameList.add(rs.getString("Dependent_name"));
+            }
+
+        } catch (SQLException e) {
+            System.err.println("연결할 수 없습니다.");
+            e.printStackTrace();
+        }
+
+        try {
+            if (conn != null)
+                conn.close();
+        } catch (SQLException e) {
+
+        }
+
+        return nameList;
+    }
+
     public void deleteEmployee(ArrayList<String> queries) {
         Connection conn = null;
         PreparedStatement pstmt = null;

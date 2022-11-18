@@ -22,13 +22,21 @@ public class CompanyController {
 
     @GetMapping("/search")
     private String search(Model model, @RequestParam Map<String, String> params) {
-        ArrayList<GetSearchResult> searches = companyService.searchEmployee(params);
+        ArrayList<GetSearchResult> searchResults = companyService.searchEmployee(params);
 
         model.addAttribute("option", companyService.getOption());
         model.addAttribute("tableHeaders", companyService.getHeader());
-        model.addAttribute("searches", searches);
+        model.addAttribute("searches", searchResults);
 
         return "search";
+    }
+
+    @GetMapping("/search/family")
+    private String searchFamily(Model model, @RequestParam String ssn) {
+        ArrayList<String> searchResults = companyService.searchFamily(ssn);
+        model.addAttribute("name", searchResults);
+
+        return "familySearch";
     }
 
     @PostMapping("/delete")
@@ -43,11 +51,6 @@ public class CompanyController {
          companyService.updateEmployee(updateEmployeeReq);
 
          return "home";
-    }
-
-    @GetMapping("/insertPage")
-    private String insertPage() {
-        return "insertPage";
     }
 
     @PostMapping ("/insert")

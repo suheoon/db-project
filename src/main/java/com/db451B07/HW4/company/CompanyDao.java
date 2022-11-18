@@ -157,6 +157,30 @@ public class CompanyDao {
         }
     }
 
+    public void updateDepartmentSalary(String query) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = getConnection();
+            System.out.println("정상적으로 연결되었습니다.");
+
+            pstmt = conn.prepareStatement(query);
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            System.err.println("연결할 수 없습니다.");
+            e.printStackTrace();
+        }
+
+        try {
+            if (conn != null)
+                conn.close();
+        } catch (SQLException e) {
+
+        }
+    }
+
     public void insertEmployee(String query) {
         Connection conn = null;
         PreparedStatement pstmt = null;

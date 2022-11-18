@@ -1,12 +1,8 @@
 package com.db451B07.HW4.company;
 
-import com.db451B07.HW4.company.model.DeleteEmployeeReq;
-import com.db451B07.HW4.company.model.Employee;
-import com.db451B07.HW4.company.model.GetSearchResult;
-import com.db451B07.HW4.company.model.UpdateEmployeeReq;
+import com.db451B07.HW4.company.model.*;
 import lombok.Getter;
 
-import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -39,11 +35,22 @@ public class CompanyService {
     }
 
     public void updateEmployee(UpdateEmployeeReq updateEmployeeReq) {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date currentTime = Calendar.getInstance().getTime();
+        String currentTimeString = df.format(currentTime);
+
         String query = "UPDATE EMPLOYEE SET ";
-        query += (updateEmployeeReq.getColumn() + " = " + "'" + updateEmployeeReq.getContent() + "'"
-                + " WHERE Ssn = " + updateEmployeeReq.getSsn());
+        query += (updateEmployeeReq.getColumn() + " = " + "'" + updateEmployeeReq.getContent() + "', "
+               + "modified" + " = " + "'" + currentTimeString + "'" + " WHERE Ssn = " + updateEmployeeReq.getSsn());
 
         companyDao.updateEmployee(query);
+    }
+
+    public void updateDepartmentSalary(UpdateDepartmentSalaryReq updateDepartmentSalaryReq) {
+        String query = "UPDATE (EMPLOYEE e JOIN DEPARTMENT d ON e.Dno = d.Dnumber) SET e.Salary = " + updateDepartmentSalaryReq.getSalary() +
+                " WHERE d.Dname = " + "'" + updateDepartmentSalaryReq.getDepartment() + "'";
+        System.out.println(query);
+        companyDao.updateDepartmentSalary(query);
     }
 
     public void insertEmployee(Employee employee) {

@@ -20,6 +20,12 @@
         form.submit();
         return true;
     }
+
+    function departmentSalaryUpdate(form) {
+        form.action = "/update/department/salary";
+        form.submit();
+        return true;
+    }
 </script>
 <form method="post" action="/delete">
     <table border="1">
@@ -93,7 +99,7 @@
         %>
     </table>
     <p>
-    수정 :
+        수정 :
         <select name="column">
             <option value="Address">Address</option>
             <option value="Sex">Sex</option>
@@ -104,5 +110,13 @@
     </p>
     <p>
         <input type="submit" name="delete" value="선택한 데이터 삭제">
+    </p>
+    <p>
+    <h3>부서별로 월급 일괄 수정하기</h3>
+    </p>
+    <p>
+        부서명 : <input type="text" name="department">
+        월급 : <input type="text" name="salary">
+        <input type="button" value="월급 수정하기" onclick='return departmentSalaryUpdate(this.form);'>
     </p>
 </form>

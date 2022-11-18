@@ -1,9 +1,6 @@
 package com.db451B07.HW4.company;
 
-import com.db451B07.HW4.company.model.DeleteEmployeeReq;
-import com.db451B07.HW4.company.model.Employee;
-import com.db451B07.HW4.company.model.GetSearchResult;
-import com.db451B07.HW4.company.model.UpdateEmployeeReq;
+import com.db451B07.HW4.company.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -48,12 +45,19 @@ public class CompanyController {
 
     @PostMapping("/update")
     private String update(@ModelAttribute UpdateEmployeeReq updateEmployeeReq) {
-         companyService.updateEmployee(updateEmployeeReq);
+        companyService.updateEmployee(updateEmployeeReq);
 
-         return "home";
+        return "home";
     }
 
-    @PostMapping ("/insert")
+    @PostMapping("/update/department/salary")
+    private String updateDepartmentSalary(@ModelAttribute UpdateDepartmentSalaryReq updateDepartmentSalaryReq) {
+        companyService.updateDepartmentSalary(updateDepartmentSalaryReq);
+
+        return "home";
+    }
+
+    @PostMapping("/insert")
     private String add(@ModelAttribute Employee employee) {
         companyService.insertEmployee(employee);
 

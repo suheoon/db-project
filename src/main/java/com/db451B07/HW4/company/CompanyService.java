@@ -87,43 +87,43 @@ public class CompanyService {
         String query = "";
         for (String key : searchParams.keySet()) {
             if (key.equals("name")) {
-                query += "e.fname as e_fname, e.lname as e_lname, e.minit as e_minit, ";
+                query += "e.fname, e.lname, e.minit, ";
                 option.set(0, true);
                 header.add("NAME");
                 continue;
             }
             if (key.equals("ssn")) {
-                query += "e.ssn as e_ssn, ";
+                query += "e.ssn, ";
                 option.set(1, true);
                 header.add("SSN");
                 continue;
             }
             if (key.equals("bdate")) {
-                query += "e.bdate as e_bdate, ";
+                query += "e.bdate, ";
                 option.set(2, true);
                 header.add("BDATE");
                 continue;
             }
             if (key.equals("address")) {
-                query += "e.address as e_address, ";
+                query += "e.address, ";
                 option.set(3, true);
                 header.add("ADDRESS");
                 continue;
             }
             if (key.equals("sex")) {
-                query += "e.sex as e_sex, ";
+                query += "e.sex, ";
                 option.set(4, true);
                 header.add("SEX");
                 continue;
             }
             if (key.equals("salary")) {
-                query += "e.salary as e_salary, ";
+                query += "e.salary, ";
                 option.set(5, true);
                 header.add("SALARY");
                 continue;
             }
             if (key.equals("supervisor")) {
-                query += "s.fname as s_fname, s.lname as s_lname, ";
+                query += "e2.fname, e2.lname, ";
                 option.set(6, true);
                 header.add("SUPERVISOR");
                 continue;
@@ -173,12 +173,10 @@ public class CompanyService {
                 }
             }
             if (mainCategory.equals("supervisor")) {
-                where += "s.ssn=" + "'" + inputText + "'";
+                where += "e2.ssn=" + "'" + inputText + "'";
             }
         }
-        query = "SELECT " + query + " FROM (EMPLOYEE e LEFT OUTER JOIN DEPARTMENT d ON e.Dno=d.Dnumber) LEFT OUTER JOIN EMPLOYEE s on e.super_ssn=s.ssn" + where;
-
-        System.out.println(query);
+        query = "SELECT " + query + " FROM EMPLOYEE e JOIN DEPARTMENT d ON e.Dno=d.Dnumber JOIN EMPLOYEE e2 ON e.super_ssn=e2.ssn" + where;
 
         return query;
     }

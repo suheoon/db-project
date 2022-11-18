@@ -112,7 +112,7 @@
         <input type="submit" name="delete" value="선택한 데이터 삭제">
     </p>
     <p>
-    <h3>부서별로 월급 일괄 수정하기</h3>
+    <h2>부서별로 월급 일괄 수정하기</h2>
     </p>
     <p>
         부서명 : <input type="text" name="department">

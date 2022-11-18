@@ -33,25 +33,25 @@ public class CompanyDao {
             while (rs.next()) {
                 GetSearchResult getSearchResult = new GetSearchResult();
                 if (option.get(0)) {
-                    getSearchResult.setName(checkNull(rs.getString("e_fname")) + " " + checkNull(rs.getString("e_minit")) + " " + checkNull(rs.getString("e_lname")));
+                    getSearchResult.setName(checkNull(rs.getString("e.fname")) + " " + checkNull(rs.getString("e.minit")) + " " + checkNull(rs.getString("e.lname")));
                 }
                 if (option.get(1)) {
-                    getSearchResult.setSsn(checkNull(rs.getString("e_ssn")));
+                    getSearchResult.setSsn(checkNull(rs.getString("e.ssn")));
                 }
                 if (option.get(2)) {
-                    getSearchResult.setBDate(checkNull(rs.getString("e_bdate")));
+                    getSearchResult.setBDate(checkNull(rs.getString("e.bdate")));
                 }
                 if (option.get(3)) {
-                    getSearchResult.setAddress(checkNull(rs.getString("e_address")));
+                    getSearchResult.setAddress(checkNull(rs.getString("e.address")));
                 }
                 if (option.get(4)) {
-                    getSearchResult.setSex(checkNull(rs.getString("e_sex")));
+                    getSearchResult.setSex(checkNull(rs.getString("e.sex")));
                 }
                 if (option.get(5)) {
-                    getSearchResult.setSalary(checkNull(rs.getString("e_salary")));
+                    getSearchResult.setSalary(checkNull(rs.getString("e.salary")));
                 }
                 if (option.get(6)) {
-                    getSearchResult.setSupervisor(checkNull(rs.getString("s_fname")) + " " + checkNull(rs.getString("s_lname")));
+                    getSearchResult.setSupervisor(checkNull(rs.getString("e2.fname")) + " " + checkNull(rs.getString("e2.lname")));
                 }
                 if (option.get(7)) {
                     getSearchResult.setDepartment(checkNull(rs.getString("dname")));

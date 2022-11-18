@@ -55,14 +55,14 @@
 </form>
 <p>
 <form method="get" action="/search/family">
-    <p>직원별 가족 검색 (ssn 입력)</p>
+    <h2>직원별 가족 검색 (ssn 입력)</h2>
     <input type="text" name="ssn">
     <p><input type="submit" value="가족검색"></p>
 </form>
 </p>
 <p>
 <form method="post" action="/insert">
-    <p>새로운 직원 정보 추가</p>
+    <h2>새로운 직원 정보 추가</h2>
     <label>First Name : <input type="text" name="fName"></label><br>
     <label>Middle Init : <input type="text" name="mInit"></label><br>
     <label>Last Name : <input type="text" name="lName"></label><br>

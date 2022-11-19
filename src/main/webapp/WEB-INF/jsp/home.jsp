@@ -13,6 +13,7 @@
         <option value="sex">성별</option>
         <option value="salary">연봉</option>
         <option value="bdate">생일</option>
+        <option value="supervisor">부하직원</option>
     </select>
 
     <select name="subCategory" id="category">
@@ -24,12 +25,16 @@
             var department = ["Research", "Administration", "Headquarters"];
             var sex = ["M", "F"];
             var birthday = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+            var integer = ["Int"];
+            var super_ssn = ["ssn"];
             var target = document.getElementById("category");
             var d;
 
             if (e.value == "department") d = department;
             else if (e.value == "sex") d = sex;
             else if (e.value == "bdate") d = birthday;
+            else if (e.value == "salary") d = integer;
+            else if (e.value == "supervisor") d = super_ssn;
             else d = none;
 
             target.options.length = 0;
